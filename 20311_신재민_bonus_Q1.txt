@@ -1,0 +1,29 @@
+package bonus;
+
+import java.util.Scanner;
+
+public class bonus01 {
+
+	public static void main(String[] args) {
+		int total = 0;
+		int avg = 0;
+		int count = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("* 입력 끝에 0 기입 시 결과 출력됨 *");
+		System.out.print("숫자를 입력해주세요 : ");
+		while (true) {
+			int a = sc.nextInt();
+			if (a > 0 && a % 2 == 1) {
+				count++;
+				total = a + total;
+				avg = total / count;
+			} else if (a == 0) {
+				break;
+			}
+		}
+		System.out.println("홀수의 합 = " + total);
+		System.out.println("홀수의 평균 = " + avg);
+		sc.close();
+	}
+
+}

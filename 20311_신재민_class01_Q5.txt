@@ -1,0 +1,66 @@
+package class01;
+
+import java.util.Scanner;
+
+public class class01_Q5 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (true) {
+			int thousand = 0;
+			int fivehund = 0;
+			int hund = 0;
+			int fifty = 0;
+			int ten = 0;
+
+			System.out.print("물건값을 입력하세요 : ");
+			int thing = sc.nextInt();
+			if (thing == 0)
+				break;
+
+			System.out.print("지불한 돈의 액수를 입력하세요 : ");
+			int pay = sc.nextInt();
+
+
+			if (pay - thing < 0)
+				System.out.println(Math.abs(pay - thing) + "원이 부족합니다");
+			else {
+				int change = pay - thing;
+
+				System.out.println("거스름돈 : " + change + "원");
+
+				while (change >= 1000) {
+					change -= 1000;
+					thousand++;
+				}
+				System.out.println("1000원 : " + thousand + "개");
+
+				while (change >= 500) {
+					change -= 500;
+					fivehund++;
+				}
+				System.out.println("500원 : " + fivehund + "개");
+
+				while (change >= 100) {
+					change -= 100;
+					hund++;
+				}
+				System.out.println("100원 : " + hund + "개");
+
+				while (change >= 50) {
+					change -= 50;
+					fifty++;
+				}
+				System.out.println("50원 : " + fifty + "개");
+
+				while (change >= 10) {
+					change -= 10;
+					ten++;
+				}
+				System.out.println("10원 : " + ten + "개");
+			}
+		}
+		sc.close();
+	}
+
+}
