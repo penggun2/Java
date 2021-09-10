@@ -1,0 +1,59 @@
+package class02;
+
+import java.util.Scanner;
+
+class Day {
+	private String work; // 하루 할 일을 나타내는 문자열
+
+	public void set(String work) {
+		this.work = work;
+	}
+
+	public void show() {
+		if (work == null)
+			System.out.println("없습니다.");
+		else
+			System.out.println(work + " 입니다.");
+	}
+}
+
+public class class02_Q3 {
+
+	public static void main(String[] args) {
+		Day[] day = new Day[31];
+		for (int i = 0; i < 31; i++) {
+			day[i] = new Day();
+		}
+		Scanner sc = new Scanner(System.in);
+		System.out.println("===이번달 스케쥴 관리 프로그램===");
+		while (true) {
+			System.out.print("할일(1:입력, 2:보기 , 3:끝내기) >> ");
+			int num = sc.nextInt();
+			if (num == 3) {
+				System.out.println("프로그램을 종료합니다.");
+				sc.close();
+				break;
+			} else if(num == 1 || num == 2) {
+				System.out.print("날짜(1~30)? ");
+				int dayNum = sc.nextInt();
+				switch (num) {
+				case 1:
+					System.out.print("할일(빈칸없이입력)? ");
+					String work = sc.next();
+					day[dayNum - 1].set(work);
+					break;
+				case 2:
+					day[dayNum - 1].show();
+					break;
+				default:
+					break;
+				}
+			} else {
+				System.out.println("없는 명령어 입니다.");
+			}
+
+		}
+
+	}
+
+}
